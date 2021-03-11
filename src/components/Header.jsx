@@ -15,7 +15,7 @@ function Header(){
               <a href="/">Contact</a>
             </li>
             <li className="details--item">
-              <a href="https://rickandmortyapi.com/" target="_blank">Api</a>
+              <a href="https://rickandmortyapi.com/" target="_blank" rel="noreferrer" >Api</a>
             </li>
           </ul>
         </div>

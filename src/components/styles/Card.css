@@ -1,0 +1,31 @@
+.card__container {
+  position: relative;
+  max-width: 300px;
+  height: 200px;
+  box-shadow: 0 0 8px var(--shadow);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card__container img {
+  vertical-align: middle;
+  width: 100%;
+}
+
+.card__details {
+  position: absolute;
+  padding: 20px 0;
+  text-align: center;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: var(--font-color);
+  color: var(--main-color);
+  opacity: 0;
+  transition: 0.4s opacity;
+}
+
+.card__container:hover .card__details {
+  opacity: 0.8;
+}

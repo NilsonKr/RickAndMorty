@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --main-color: #35c9dd;
+  --second-color: #a9f3fd;
+  --special-color: #66f761;
+  --shadow: rgba(0, 0, 0, 0.432);
+  --font-color: rgb(0, 0, 0);
+}
