@@ -1,6 +1,5 @@
 import React from 'react'
 import './styles/Card.css'
-// import proofImg from '../assets/tryImg.jpg'
 
 function Card(props){
   return (
