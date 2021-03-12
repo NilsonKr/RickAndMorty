@@ -47,6 +47,7 @@ class Description extends React.Component{
         </div>
       )
     }
+
     if(this.state.error){
       return (
         <div className="error">
@@ -54,6 +55,7 @@ class Description extends React.Component{
         </div>
       )
     }
+    
     return (
       <React.Fragment>
         {this.state.data &&(
