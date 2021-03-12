@@ -1,7 +1,7 @@
 .card__container {
   position: relative;
   max-width: 300px;
-  height: 200px;
+  height: 250px;
   box-shadow: 0 0 8px var(--shadow);
   border-radius: 10px;
   overflow: hidden;
@@ -10,7 +10,9 @@
 
 .card__container img {
   vertical-align: middle;
+  height: 100%;
   width: 100%;
+  object-fit: cover;
 }
 
 .card__details {

@@ -1,14 +1,14 @@
 import React from 'react'
 import './styles/Card.css'
-import proofImg from '../assets/tryImg.jpg'
+// import proofImg from '../assets/tryImg.jpg'
 
-function Card(){
+function Card(props){
   return (
     <React.Fragment>
       <div className="card__container">
-        <img src={proofImg} alt="Img RickAndMorty"/>
+        <img src={props.src} alt="Img RickAndMorty"/>
         <div className="card__details">
-          <h2>Character's Name</h2>
+          <h2>{props.name}</h2>
         </div>
       </div>
     </React.Fragment>
