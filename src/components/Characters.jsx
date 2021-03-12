@@ -32,11 +32,15 @@ class Characters extends React.Component{
       if(!response.ok){
         throw new Error(`Error With Status ${response.status}`)
       }
-      console.log(data)
-      this.setState({ loading: false, data: {
-        info: data.info,
-        results: [].concat(this.state.data.results, data.results)
-      }, nextPage: this.state.nextPage + 1})
+      
+      this.setState({ 
+        loading: false, 
+        data: {
+          info: data.info,
+          results: [].concat(this.state.data.results, data.results)
+        },
+        nextPage: this.state.nextPage + 1
+      })
 
     } catch (error) {
    

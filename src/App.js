@@ -1,13 +1,20 @@
 import React from 'react'
+import { BrowserRouter, Route, Switch} from 'react-router-dom'
 import Layout from './pages/layout.jsx'
 import Home from './pages/Home'
+import Description from './pages/Description'
 
 
 function App(){
   return (
-    <Layout>
-      <Home />
-    </Layout>
+    <BrowserRouter>
+      <Layout>
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route path="/character/" component={Description}/>
+        </Switch>
+      </Layout>
+    </BrowserRouter>
   )
 }
 

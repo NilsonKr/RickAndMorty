@@ -1,14 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import HeaderIcon from "../assets/icon.svg"
 import './styles/Header.css'
+
 
 function Header(){
   return (
     <React.Fragment>
       <header className="header">
-        <div className="header__home">
+        <Link to="/" className="header__home">
           <img src={HeaderIcon} alt="Icon Header"/>
-        </div>
+        </Link>
         <div  className="header__details">
           <ul>
             <li className="details--item">

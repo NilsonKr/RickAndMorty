@@ -6,7 +6,7 @@ function CharactersList(props){
 
   return (
     <div className="characters__list">
-      {data.map(char => <Card name={char.name} src={char.image} key={char.id}/> )}
+      {data.map(char => <Card name={char.name} src={char.image} id={char.id} key={char.id}/> )}
     </div>
   )
 }
