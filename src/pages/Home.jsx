@@ -9,13 +9,16 @@ class Home extends React.Component{
   constructor(props){
     super(props);
     this.getPage = this.getPage.bind(this)
-    
+    this.handlePagePass = this.handlePagePass.bind(this)
+    this.handlePageBack = this.handlePageBack.bind(this)
+
     this.state ={
       page: 1,
       currentPage: 1,                                                                   
       error: null,
       loading: true,
       data : {
+        info: undefined,
         results : []
       }
     }
@@ -27,6 +30,7 @@ class Home extends React.Component{
   componentDidMount(){
     this.fetchData()
   }
+
   componentDidUpdate = async (prevProps) => {
     if(prevProps.location.pathname !== this.props.location.pathname){
       await this.getPage(this.props)
@@ -42,6 +46,20 @@ class Home extends React.Component{
     await this.setState({
       page,
     })
+  }
+
+  handlePagePass(){
+    if(this.state.currentPage > this.state.data.info.pages - 3){
+      return
+    }
+    this.setState({currentPage:this.state.currentPage + 1})
+  }
+
+  handlePageBack(){
+    if(this.state.currentPage === 1){
+      return
+    }
+    this.setState({currentPage:this.state.currentPage - 1})
   }
 
   fetchData = async () => {
@@ -90,7 +108,7 @@ class Home extends React.Component{
           )}
           {this.state.data.results.length > 0 && (
             <div className="characters__showMore">
-              <Pages page={this.state.currentPage}/>    {/*Show the pages carousel if theres items rendered*/}
+              <Pages page={this.state.currentPage} handlePass={this.handlePagePass} handleBack={this.handlePageBack}/>    {/*Show the pages carousel if theres items rendered*/}
             </div> 
           )}
 

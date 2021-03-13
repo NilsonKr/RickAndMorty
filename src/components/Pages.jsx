@@ -10,7 +10,7 @@ function Pages(props){
   return (
     <React.Fragment>
       <section className="pages__container ">
-        <span className="arrows left indicator"></span>
+        <span onClick={props.handleBack} className="arrows left indicator"></span>
         <Link to={`/page/${item1}`}>
           <div className="pages__indicator indicator">{item1}</div>
         </Link>
@@ -20,7 +20,7 @@ function Pages(props){
         <Link to={`/page/${item3}`}>
           <div className="pages__indicator indicator">{item3}</div>     {/* Links To the corresponding page to render */}
         </Link>
-        <span className="arrows right indicator"></span>
+        <span onClick={ props.handlePass} className="arrows right indicator"></span>
       </section>
     </React.Fragment>
   )
