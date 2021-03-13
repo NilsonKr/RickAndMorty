@@ -10,8 +10,8 @@ class Characters extends React.Component{
 
     
     this.state ={
-      page: props.page ,
-      currentPage: 1,
+      page: props.page ,                    //Setting the fetching data states , page to render , and the pointer to the current page 
+      currentPage: 1,                                                                   
       error: null,
       loading: true,
       data : {
@@ -30,18 +30,18 @@ class Characters extends React.Component{
 
     try {
       const response = await fetch(this.api + this.state.page)
-      const data = await response.json()
+      const data = await response.json()                    
 
 
       if(!response.ok){
-        throw new Error(`Error With Status ${response.status}`)
+        throw new Error(`Error With Status ${response.status}`)     //Throwing out a error if the request came out wrong
       }
       
       this.setState({ 
         loading: false, 
         data: {
           info: data.info,
-          results: [].concat(this.state.data.results, data.results)
+          results: [].concat(this.state.data.results, data.results)   
         },
       })
 
@@ -55,7 +55,7 @@ class Characters extends React.Component{
     if(this.state.error){
       return (
         <div className="characters__container">
-          <h2>❌{this.state.error.message}😨</h2>
+          <h2>❌{this.state.error.message}😨</h2>     {/* Render the error message if theres a error*/ }
         </div>
       )
     }
@@ -71,7 +71,7 @@ class Characters extends React.Component{
           )}
           {this.state.data.results.length > 0 && (
             <div className="characters__showMore">
-              <button onClick={this.fetchData} className="btn btn-primary">Show More</button>
+              <button onClick={this.fetchData} className="btn btn-primary">Show More</button>   {/*Show the pages carousel if theres items rendered*/}
               <Pages page={this.state.currentPage}/>
             </div> 
           )}

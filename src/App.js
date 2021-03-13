@@ -9,10 +9,10 @@ function App(){
   return (
     <BrowserRouter>
       <Layout>
-        <Switch>
-          <Route exact path="/" component={Home}/>
+        <Switch>                                          {/*Setting Up The routes with a layout Done*/} 
+          <Route exact path="/" component={Home}/>      
           <Route path="/page/" component={Home}/>
-          <Route path="/character/" component={Description}/>
+          <Route path="/character/" component={Description}/>     
         </Switch>
       </Layout>
     </BrowserRouter>
