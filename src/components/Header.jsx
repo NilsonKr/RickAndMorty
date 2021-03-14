@@ -14,7 +14,7 @@ function Header(){
         <div  className="header__details">
           <ul>
             <li className="details--item">
-              <a href="/">Contact</a>
+              <Link to="/contact/">Contact</Link>
             </li>
             <li className="details--item">
               <a href="https://rickandmortyapi.com/" target="_blank" rel="noreferrer" >Api</a>

@@ -12,15 +12,13 @@ html {
   --main-color: #35c9dd;
   --second-color: #a9f3fd;
   --special-color: #66f761;
-  --shadow: rgba(0, 0, 0, 0.432);
+  --shadow: rgba(0, 0, 0, 0.363);
   --font-color: rgb(0, 0, 0);
 }
 
 .btn {
   outline: none;
   border: none;
-  padding: 15px 20px;
-  font-size: 2rem;
   border-radius: 30px;
   cursor: pointer;
 }
