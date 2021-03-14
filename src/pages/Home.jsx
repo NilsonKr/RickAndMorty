@@ -1,7 +1,10 @@
 import React from 'react'
-import './styles/Home.css'
+
 import CharactersList from '../components/CharactersList'
 import Pages from '../components/Pages'
+import SearchBar from '../components/searchBar'
+
+import './styles/Home.css'
 import loader from '../assets/loader.gif'
 
 
@@ -13,8 +16,9 @@ class Home extends React.Component{
     this.handlePageBack = this.handlePageBack.bind(this)
 
     this.state ={
-      page: 1,
-      currentPage: 1,                                                                   
+      query: '',     //Search Character
+      page: 1,        //Page to render
+      currentPage: 1,     // Page pointer to set up the pages carousel                                                  
       error: null,
       loading: true,
       data : {
@@ -37,6 +41,14 @@ class Home extends React.Component{
       this.fetchData()
       // console.log(this.props)
     }
+  }
+  setQuery = ev => {
+    this.setState({query: ev.target.value})
+  }
+
+  handleSubmit = ev =>{
+    ev.preventDefault()
+    this.props.history.push(`/search/${this.state.query}`)
   }
 
   getPage = async (props) => {
@@ -99,6 +111,7 @@ class Home extends React.Component{
     return (
       <React.Fragment>
         <div className="characters__container">
+         <SearchBar handleSubmit={this.handleSubmit} setQuery={this.setQuery} />
          <CharactersList data={this.state.data}  />
 
          {this.state.loading && (
