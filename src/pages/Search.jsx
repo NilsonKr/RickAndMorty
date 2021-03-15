@@ -55,6 +55,35 @@ class Search extends React.Component{
     this.setState({query: ev.target.value})
   }
 
+  showMore = async ev => {
+    if(!this.state.data.info.next){
+      return
+    }
+    this.setState({loading: true, error: null})
+
+    try {
+      const response = await fetch(this.state.data.info.next)
+      const data = await response.json()
+
+      if(!response.ok){
+        throw new Error('oH Oh Something came out wrong , Try Again!')
+      }
+
+      this.setState({
+        loading: false, 
+        error: null, 
+        data: {
+          info: data.info,
+          results: [].concat(this.state.data.results, data.results)
+        }
+      })
+    } catch (error) {
+      
+      this.setState({loading: false, error: error})
+    }
+  }
+
+
   render(){
     if(this.state.error){
       return (
@@ -70,10 +99,15 @@ class Search extends React.Component{
         
         <SearchBar handleSubmit={this.handleSubmit} setQuery={this.setQuery} />
         <CharactersList data={this.state.data}  />
-        {this.state.data.results.length === 0 && (
+        {this.state.loading === true && (
             <div >
                 <img src={loader} alt="Loader"/>
             </div>
+        )}
+        {this.state.data.results.length > 0 && (
+          <button className="search__more btn btn-primary" onClick={this.showMore}>
+              Show More
+          </button>
         )}
       </div>
     )

@@ -49,3 +49,9 @@
   width: 30px;
   cursor: pointer;
 }
+
+.search__more{
+  margin-top: 30px;
+  padding: 20px;
+  font-size: 2rem;
+}
