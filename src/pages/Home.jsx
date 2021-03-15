@@ -17,8 +17,8 @@ class Home extends React.Component{
 
     this.state ={
       query: '',     //Search Character
-      page: 1,        //Page to render
-      currentPage: 1,     // Page pointer to set up the pages carousel                                                  
+      page: undefined,        //Page to render
+      controlPage: parseInt(props.match.params.pageId) || 1,     // Page pointer to set up the pages carousel                                                  
       error: null,
       loading: true,
       data : {
@@ -27,11 +27,13 @@ class Home extends React.Component{
       }
     }
 
+    
     this.api = "https://rickandmortyapi.com/api/character/?page="
   }
-
+  
   
   componentDidMount(){
+    this.getPage(this.props)
     this.fetchData()
   }
 
@@ -52,8 +54,8 @@ class Home extends React.Component{
   }
 
   getPage = async (props) => {
-    const path = props.location.pathname.split('/').slice(-1)     //Get the page location to fetch the corresponding data
-    const page = parseInt(path[0])
+    const path = props.match.params.pageId || '1'     //Get the page location to fetch the corresponding data
+    const page = parseInt(path)
                                                  //Setting the fetching data states , page to render , and the pointer to the current page  
     await this.setState({
       page,
@@ -61,17 +63,17 @@ class Home extends React.Component{
   }
 
   handlePagePass(){
-    if(this.state.currentPage > this.state.data.info.pages - 3){
+    if(this.state.controlPage > this.state.data.info.pages - 3){
       return
     }
-    this.setState({currentPage:this.state.currentPage + 1})
+    this.setState({controlPage:this.state.controlPage + 1})
   }
 
   handlePageBack(){
-    if(this.state.currentPage === 1){
+    if(this.state.controlPage === 1){
       return
     }
-    this.setState({currentPage:this.state.currentPage - 1})
+    this.setState({controlPage:this.state.controlPage - 1})
   }
 
   fetchData = async () => {
@@ -121,7 +123,7 @@ class Home extends React.Component{
           )}
           {this.state.data.results.length > 0 && (
             <div className="characters__showMore">
-              <Pages page={this.state.currentPage} handlePass={this.handlePagePass} handleBack={this.handlePageBack}/>    {/*Show the pages carousel if theres items rendered*/}
+              <Pages actualPage={this.state.page} page={this.state.controlPage} handlePass={this.handlePagePass} handleBack={this.handlePageBack}/>    {/*Show the pages carousel if theres items rendered*/}
             </div> 
           )}
 

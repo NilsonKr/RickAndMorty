@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import Description from './pages/Description'
 import Contact from './pages/Contact'
 import Search from './pages/Search'
+// import Page from './pages/Page'
 
 
 function App(){
@@ -14,9 +15,9 @@ function App(){
       <Layout>
         <Switch>                                          {/*Setting Up The routes with a layout Done*/} 
           <Route exact path="/" component={Home}/>
+          <Route exact path="/page/:pageId" component={Home}/>
           <Route exact path="/contact/" component={Contact} />  
           <Route exact path="/search/:queryId" component={Search} />     
-          <Route path="/page/" component={Home}/>
           <Route path="/character/" component={Description}/>     
         </Switch>
       </Layout>

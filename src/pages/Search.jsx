@@ -36,7 +36,7 @@ class Search extends React.Component{
          throw new Error('Oh oH Something came out Wrong Try Again!')
       }
 
-     this.setState({loading: false, data})
+     this.setState({loading: false, data, query: ''})
 
     }catch (error){
       this.setState({loading: false, error})
@@ -45,6 +45,9 @@ class Search extends React.Component{
 
   handleSubmit = ev =>{
     ev.preventDefault()
+    if(this.state.query === ''){
+      return this.props.history.push('/')
+    }
     this.fetchData()
   }
   
