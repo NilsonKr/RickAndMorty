@@ -83,3 +83,14 @@
 #trick{
   opacity: 0;
 }
+
+@media screen and (max-width: 700px){
+  .contact__container{
+    grid-template: repeat(3, minmax(50px, 300px)) / repeat(2, minmax(50px, 300px));
+    grid-template-areas:
+      "img img "
+      "img img "
+      "form form";
+    row-gap: 20px;
+  }
+}

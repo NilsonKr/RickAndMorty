@@ -4,6 +4,6 @@
 }
 
 .Hero img {
-  min-width: 300px;
+  width: clamp(50px, 100%, 650px);
   filter: drop-shadow(0 0 3px #66f761);
 }

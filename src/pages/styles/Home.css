@@ -27,7 +27,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 80%;
+  width: clamp(50px, 100%, 500px);
   padding: 5px;
   margin: 10px 0 30px;
   box-shadow: 0 0 8px var(--shadow);
