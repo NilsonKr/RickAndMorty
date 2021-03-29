@@ -1,10 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import HeaderIcon from '../assets/icon.svg';
 import './styles/Header.css';
 
-function Header() {
+function Header(props) {
 	const [theme, setTheme] = useState('light');
+
+	useEffect(() => {
+		if (theme === 'light') {
+			document.body.style.setProperty('--bg', '#fff');
+			document.body.style.setProperty('--font-color', '#000');
+		} else {
+			document.body.style.setProperty('--bg', '#000');
+			document.body.style.setProperty('--font-color', '#fff');
+		}
+	}, [theme]);
 
 	return (
 		<React.Fragment>
@@ -24,7 +34,10 @@ function Header() {
 						</li>
 					</ul>
 					<label className='header__switch'>
-						<input type='checkbox' />
+						<input
+							type='checkbox'
+							onClick={() => (theme === 'light' ? setTheme('dark') : setTheme('light'))}
+						/>
 						<span className='switch__slideBar'></span>
 					</label>
 				</div>
