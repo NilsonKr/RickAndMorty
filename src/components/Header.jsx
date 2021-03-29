@@ -11,7 +11,7 @@ function Header(props) {
 			document.body.style.setProperty('--bg', '#fff');
 			document.body.style.setProperty('--font-color', '#000');
 		} else {
-			document.body.style.setProperty('--bg', '#000');
+			document.body.style.setProperty('--bg', '#2e2e2e');
 			document.body.style.setProperty('--font-color', '#fff');
 		}
 	}, [theme]);

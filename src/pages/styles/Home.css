@@ -1,57 +1,58 @@
 .characters__container {
-  width: 70%;
-  min-height: 100vh;
-  padding-bottom: 20px;
-  margin: 0 auto;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
+	width: 70%;
+	min-height: 100vh;
+	padding-bottom: 20px;
+	margin: 0 auto;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .characters__list {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
-  gap: 20px;
-  justify-content: center;
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 300px);
+	gap: 20px;
+	justify-content: center;
 }
 
 .characters__showMore {
-  margin-top: 30px;
-  width: 100%;
-  text-align: center;
+	margin-top: 30px;
+	width: 100%;
+	text-align: center;
 }
 
-.search__container{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: clamp(50px, 100%, 500px);
-  padding: 5px;
-  margin: 10px 0 30px;
-  box-shadow: 0 0 8px var(--shadow);
-  border-radius: 40px;
+.search__container {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: clamp(50px, 100%, 500px);
+	padding: 5px;
+	margin: 10px 0 30px;
+	box-shadow: 0 0 8px var(--shadow);
+	border-radius: 40px;
+	background-color: #fff;
 }
-.search__container input{
-  width: 80%;
-  border: none;
-  outline: none;
-  border-bottom: 2px solid var(--shadow);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 1.2rem;
+.search__container input {
+	width: 80%;
+	border: none;
+	outline: none;
+	border-bottom: 2px solid var(--shadow);
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 1.2rem;
 }
-.search__submit{
-  border: none;
-  background: none;
+.search__submit {
+	border: none;
+	background: none;
 }
-.search__icon{
-  width: 30px;
-  cursor: pointer;
+.search__icon {
+	width: 30px;
+	cursor: pointer;
 }
 
-.search__more{
-  margin-top: 30px;
-  padding: 20px;
-  font-size: 2rem;
+.search__more {
+	margin-top: 30px;
+	padding: 20px;
+	font-size: 2rem;
 }
